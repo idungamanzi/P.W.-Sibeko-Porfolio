@@ -52,8 +52,8 @@ Hosted via **Vercel**, with continuous GitHub deployment.
 
 ## 📬 Contact
 
-**Email:** phakamani.sibeko01@gmail.com  
-**LinkedIn:** https://linkedin.com/in/phakamani-sibeko  
+**Email:** phakamanimluleki@gmail.com  
+**LinkedIn:** https://linkedin.com/in/pwm-sibeko-t1000  
 **GitHub:** https://github.com/idungamanzi  
 
 > _“I strive to develop technology that uplifts people, strengthens communities, and safeguards the digital future.”_
