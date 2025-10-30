@@ -1,59 +1,75 @@
-# P.W.-Sibeko-Porfolio
-# Phakamani William Sibeko — Software Developer | AI & Cybersecurity Enthusiast
+# React + TypeScript + Vite
 
-A forward-thinking Software Developer and Researcher focused on building **intelligent, secure, and scalable** digital systems.  
-I integrate structured problem-solving, disciplined engineering methods, and ethical technology practices to drive reliable, future-ready outcomes.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 🧭 About This Portfolio
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-This portfolio showcases my:
-- Software & AI Projects  
-- Academic & Professional Skill Evidence  
-- Certifications and Technical Competencies  
-- Research and Innovation Interests  
+## React Compiler
 
-Designed with:
-- **React (Vite)**
-- **TailwindCSS**
-- **Framer Motion**
-- **GitHub REST API (for repository highlights)**
+The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
 
----
+Note: This will impact Vite dev & build performances.
 
-## 🔍 Notable Projects Featured
+## Expanding the ESLint configuration
 
-| Project | Stack | Overview |
-|--------|--------|----------|
-| Mental Health Chatbot with Dashboard | Flask • GPT API • Chart.js | AI-driven cognitive support with sentiment analytics. |
-| Apple eStore (E-Commerce) | Django • SQLite • Secure Auth | Online retail platform with proof-of-payment workflow. |
-| Face & Gesture Biometric 2FA | Python • OpenCV • MediaPipe • Crypto | Multi-modal authentication to prevent spoof attacks. |
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
----
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## 🎖 Skills Wallet (Verified Competencies)
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-This project includes a **Skills Wallet**, where each skill is backed by:
-- Academic modules
-- Certifications (Cisco Networking Academy)
-- Real-world software development contributions
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-This promotes **evidence-based credibility**.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
----
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## 🚀 Deployment
-
-Live Portfolio: *(add link once deployed)*  
-Hosted via **Vercel**, with continuous GitHub deployment.
-
----
-
-## 📬 Contact
-
-**Email:** phakamanimluleki@gmail.com  
-**LinkedIn:** https://linkedin.com/in/pwm-sibeko-t1000  
-**GitHub:** https://github.com/idungamanzi  
-
-> _“I strive to develop technology that uplifts people, strengthens communities, and safeguards the digital future.”_
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
