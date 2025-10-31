@@ -61,7 +61,7 @@ export default function Home() {
     </a>
 
     <a
-      href="/public/PHAKAMANI-SIBEKO-Resume.pdf"
+      href="/Phakamani-sibeko-Resume.pdf"
       target="_blank"
       rel="noopener noreferrer"
       className="border border-blue-400 text-blue-400 hover:bg-blue-500 hover:text-white px-6 py-2 rounded-xl transition"
@@ -74,4 +74,5 @@ export default function Home() {
 
   );
 }
+
 
